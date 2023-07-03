@@ -29,6 +29,7 @@ Java:
 JavaScript 
 - input 
 	+ (via browser-window) const input = prompt("Please give a value: ", 3); (both arguments are optional)
+	+ (via browser-window) const input = confirm("Do you wish to continue?");
 -output
 	+ (via browser window) alert("Hello world!");
 	+ (via browser console) console.log("Hello world!"); (note that console has many different output methods, see https://developer.mozilla.org/en-US/docs/Web/API/console)
@@ -209,7 +210,15 @@ The gold medal goes to Betty!
 The silver medal goes to Oscar,
 and the bronze medal goes to Thomas!
 ```
+8) Functions can have default arguments
+```
+function greet(name = "Fred") {​
+    console.log(`Hello, ${name}!");​
+}
 
+greet("Annika"); // Hello, Annika!​
+greet(); // Hello, Fred!
+```
 
 #### Global/'loose' functions 
 There are three ways to declare global functions in JavaScript:
@@ -414,6 +423,7 @@ In short, `for in` shows indices/keys, `for of` shows falues (ehm... values)
 
 -lambas/streams are basically arrays and array methods in JavaScript, the most important methods being map, filter and reduce 
 
+```
 const dwarves = ["Happy", "Bashful", "Sneezy", "Grumpy", "Sleepy", "Dopey", "Doc"];
 
 const dDwarves = dwarves.filter(dwarf => dwarf.startsWith("D"));
@@ -424,6 +434,7 @@ console.log(bigDwarves); // lists ['HAPPY', 'BASHFUL', 'SNEEZY', 'GRUMPY', 'SLEE
 
 const quickDwarves = dwarves.reduce((soFar, current) => soFar+current, "");
 console.log(quickDwarves); // outputs "HappyBashfulSneezyGrumpySleepyDopeyDoc"
+```
 
 Reduce is the most complex to understand, it takes either one or two arguments, its first argument being a function that takes up to three arguments (the accumulator, the current value, and the current index), that produces the next value for the accumulator. If the second argument for reduce is not given, the first element of the array is taken as the accumulator, and reduce starts the function at the second argument. So 
 
