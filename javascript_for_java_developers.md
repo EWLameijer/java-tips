@@ -85,6 +85,24 @@ delete bill.name
 	// result: {founded: 'McDonalds', hobby: 'reading'}
 ```
 
+In the {key: value} notation for objects, the key, even if you don't surround it by "", is interpreted as a string _as long as it is a valid number or identifier_. {3: 5} and {hello: 6} work, but {hello world: 7} will give a syntax error; you need to use "" then explicitly, so {"hello world": 7}
+
+But what if you want to create a key based on the value of a variable, like chosenProperty: chosenValue, with chosenProperty being "height" and value 1.87. {chosenProperty: chosenValue} would result in {chosenProperty: 1.87}, which is not exactly what you want. [] will however come to your rescue:
+
+```
+const chosenProperty = "height";
+const chosenValue = 1.87;
+
+const o1 = {chosenProperty: chosenValue}; // results in o1 being {chosenProperty: 1.87} 
+const o2 = {[chosenProperty]: chosenValue } // results in o2 being {height: 1.87}
+```
+
+In some cases, you can assign values even easier; in the case you just want to add a variable as key-value pair..
+```
+const height = 1.87;
+const o3 = {height}; // o3 is {height: 1.87}
+```
+
 Arrays are ALSO objects (so basically maps), be it that you construct arrays with [] instead of {}. const a = [2,3,4]; is approximately the same as const a = {0:2, 1:3, 2:4, length: 3}, as arrays basically are objects with strings (representing numbers) as keys. Though arrays also have some useful extra methods. Arrays ARE objects, so you can easily add `a.hello = 17;` or even `a[1.5]=3.8;`. And also note that arrays, like objects, can have vastly different data types, in contrast to Java arrays. A JavaScript array can be like `const diverse = [1, true, "hello", {name: "Bill"}, [4,3,2]];` Of course, having different data types in an array can make code hard to debug (I remember one particular debugging session with PHP), so it is not _advisable_ to store different data types in an array, but it is definitely possible in JavaScript!
 
 Functions are their own type ('function'), but functions are basically specialized objects; if you have a function like `const hello = () => console.log("Hello everyone!");` you can easily add `hello.text = 2;`. More useful is perhaps that since functions are objects, you can pass functions as values and therefore as arguments, and can return functions from other functions.
