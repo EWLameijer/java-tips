@@ -557,7 +557,7 @@ fetch(`http://localhost:8080/api/v1/items`)
 ### Array methods 
 Full overview at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
 - adding element to array 
-	end: push(firstValue[, secondValue , ...]). Returns new length of array
+	end: push(firstValue[, secondValue, ...]). Returns new length of array
 	start: unshift(firstValue[, secondValue, ...])  Returns new length of array
 - removing an element from an array (and returning it)
 	end: pop() // returns value removed 
@@ -651,6 +651,7 @@ ralphIntroduce(); // displays "Hi, I'm Ralph!"
 Special operators 
 @@@ ?.
 ??
+Map: has get 
 
 
 
